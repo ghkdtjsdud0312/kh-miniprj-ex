@@ -9,7 +9,7 @@ const AxiosApi = {
       id: id,
       pwd: pw,
     };
-    return await axios.post(KH_DOMAIN + "/user/login"); // 벡엔드 서버가 있음을 알림
+    return await axios.post(KH_DOMAIN + "/users/login", login); // 벡엔드 서버가 있음을 알림
   },
 };
 
