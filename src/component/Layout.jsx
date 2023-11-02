@@ -2,10 +2,14 @@ import { Outlet } from "react-router-dom";
 import logoWhite from "../images/tier_logo_white.png";
 import alarm from "../images/bell.png";
 import Container from "./Container";
+import { UserContext } from "../context/UserStore";
+import { useContext } from "react";
 
 const Layout = () => {
+  const context = useContext(UserContext);
+  const { color } = context;
   return (
-    <Container>
+    <Container color={color}>
       <header className="mainhead">
         <div className="logo2">
           <img src={logoWhite} alt="white" />

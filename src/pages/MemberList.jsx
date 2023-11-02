@@ -1,9 +1,14 @@
 // 회원 리스트 보기
 import AxiosApi from "../api/AxiosApi";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Container } from "../component/LoginComponent";
+
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 40px;
+`;
 
 const MemberInfoWrapper = styled.div`
   margin: 10px;
@@ -56,20 +61,22 @@ const MemberList = () => {
   };
 
   return (
-    <Container>
-      {memberList &&
-        memberList.map((member) => (
-          <MemberInfoWrapper
-            key={member.id}
-            onClick={() => onClickMember(member.id)}
-          >
-            <MemberId>ID: {member.id}</MemberId>
-            <MemberName>Name: {member.name}</MemberName>
-            <MemberEmail>Email: {member.email}</MemberEmail>
-            <MemberJoinDate>가입일: {member.join}</MemberJoinDate>
-          </MemberInfoWrapper>
-        ))}
-    </Container>
+    <>
+      <Container>
+        {memberList &&
+          memberList.map((member) => (
+            <MemberInfoWrapper
+              key={member.id}
+              onClick={() => onClickMember(member.id)}
+            >
+              <MemberId>ID: {member.id}</MemberId>
+              <MemberName>Name: {member.name}</MemberName>
+              <MemberEmail>Email: {member.email}</MemberEmail>
+              <MemberJoinDate>joinDate: {member.join}</MemberJoinDate>
+            </MemberInfoWrapper>
+          ))}
+      </Container>
+    </>
   );
 };
 

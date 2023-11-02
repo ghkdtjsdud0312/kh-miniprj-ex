@@ -12,8 +12,8 @@ const AxiosApi = {
     return await axios.post(KH_DOMAIN + "/users/login", login); // 벡엔드 서버가 있음을 알림
   },
   // 회원 정보 조회
-  MemberList: async (id) => {
-    return await axios.get(KH_DOMAIN + `users/member/?name=${id}`); // ? key value
+  memberList: async (id) => {
+    return await axios.get(KH_DOMAIN + `/users/member/?id=${id}`); // ? key value
   },
 };
 
